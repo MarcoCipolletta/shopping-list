@@ -6,7 +6,10 @@
 @for(item of itemsToCheck;track item.id){
 <div (click)="change(item)" class="d-flex justify-content-between">
   <p>{{ item.name }}</p>
-  <p>{{ item.quantity.value }} {{ item.quantity.unit }}</p>
+  <p>
+    {{ item.quantity.value }}
+    {{ item.quantity.unit === "unità" ? "" : item.quantity.unit }}
+  </p>
 </div>
 }} @if(itemsChecked.length > 0){
 <h2>Presi</h2>
@@ -16,7 +19,16 @@
   class="d-flex justify-content-between text-decoration-line-through"
 >
   <p>{{ item.name }}</p>
-  <p>{{ item.quantity.value }} {{ item.quantity.unit }}</p>
+  <p>
+    {{ item.quantity.value }}
+    {{ item.quantity.unit === "unità" ? "" : item.quantity.unit }}
+  </p>
 </div>
 
-}}}
+}}} @else {
+<div
+  class="h-full d-flex flex-column justify-content-center align-items-center"
+>
+  <h2>Nessun prodotto inserito</h2>
+</div>
+}

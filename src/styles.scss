@@ -12,3 +12,7 @@ $new-theme-colors: (
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 
 @import "bootstrap/scss/bootstrap";
+
+.h-full {
+  height: calc(100dvh - 170px);
+}
