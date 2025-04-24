@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+
 import { AddItemComponent } from './components/add-item/add-item.component';
+import { ListComponent } from './components/list/list.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
-    children: [
-      {
-        path: 'add-item',
-        component: AddItemComponent,
-      },
-    ],
+    component: ListComponent,
+  },
+  {
+    path: 'add-item',
+    component: AddItemComponent,
   },
   {
     path: '**',

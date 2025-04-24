@@ -1,23 +1,4 @@
 <div class="container">
-  <h1 class="mt-5 text-primary text-center">LISTA DELLA SPESA</h1>
-
   <router-outlet></router-outlet>
-
-  @if(itemsToCheck.length > 0 || itemsChecked.length > 0){
-  @if(itemsToCheck.length > 0){
-  <h2>Da prendere</h2>
-  } @for(item of itemsToCheck;track item.id){
-  <div (click)="change(item)" class="d-flex justify-content-between">
-    <p>{{ item.name }}</p>
-    <p>{{ item.quantity.value }} {{ item.quantity.unit }}</p>
-  </div>
-  } @if(itemsChecked.length > 0){
-  <h2>Presi</h2>
-  } @for(item of itemsChecked;track item.id){
-  <div (click)="delete(item.id)" class="d-flex justify-content-between">
-    <p>{{ item.name }}</p>
-    <p>{{ item.quantity.value }} {{ item.quantity.unit }}</p>
-  </div>
-
-  } }
 </div>
+<app-footer></app-footer>

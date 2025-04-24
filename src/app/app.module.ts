@@ -12,10 +12,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ListComponent } from './components/list/list.component';
+import { NgIconsModule } from '@ng-icons/core';
+import { iconoirNotes, iconoirShoppingBagPlus } from '@ng-icons/iconoir';
 
 @NgModule({
-  declarations: [AppComponent, AddItemComponent, FooterComponent],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, ReactiveFormsModule],
+  declarations: [
+    AppComponent,
+    AddItemComponent,
+    FooterComponent,
+    ListComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    ReactiveFormsModule,
+    NgIconsModule.withIcons({ iconoirNotes, iconoirShoppingBagPlus }),
+  ],
   providers: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),

@@ -1,50 +1,54 @@
-<div class="bg-light p-3 m-3 rounded">
-  <form (ngSubmit)="addItem()" [formGroup]="form">
-    <div class="mb-3">
-      <label for="name" class="form-label">Nome prodotto</label>
-      <input
-        formControlName="name"
-        type="text"
-        class="form-control"
-        id="name"
-        aria-describedby="nomeProdotto"
-      />
-    </div>
+<h1 class="pt-5 text-primary text-center">AGGIUNGI UN PRODOTTO</h1>
 
-    <div class="d-flex gap-2 mb-3" formGroupName="quantity">
-      <div class="">
-        <label for="unit" class="form-label">Unità</label>
-        <select
-          formControlName="unit"
-          class="form-select"
-          aria-label="Tipo unità di misura"
-        >
-          @for(unit of units;track unit;let idx = $index){ @if(idx == 0){
-          <option selected value="{{ unit }}">{{ unit }}</option>
-          } @else {
-
-          <option value="{{ unit }}">{{ unit }}</option>
-          } }
-        </select>
-      </div>
-      <div class="flex-grow-1">
-        <label for="value" class="form-label">Valore</label>
+<div class="h-full d-flex flex-column justify-content-center">
+  <div class="bg-secondary-subtle p-3 mt-3 rounded shadow-sm">
+    <form (ngSubmit)="addItem()" [formGroup]="form">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome prodotto</label>
         <input
-          formControlName="value"
-          type="number"
+          formControlName="name"
+          type="text"
           class="form-control"
-          id="value"
-          min="0"
+          id="name"
+          aria-describedby="nomeProdotto"
         />
       </div>
-    </div>
 
-    <button
-      [disabled]="!form.valid"
-      type="submit"
-      class="btn btn-primary w-100"
-    >
-      Aggiungi
-    </button>
-  </form>
+      <div class="d-flex gap-2 mb-3" formGroupName="quantity">
+        <div class="">
+          <label for="unit" class="form-label">Unità</label>
+          <select
+            formControlName="unit"
+            class="form-select"
+            aria-label="Tipo unità di misura"
+          >
+            @for(unit of units;track unit;let idx = $index){ @if(idx == 0){
+            <option selected value="{{ unit }}">{{ unit }}</option>
+            } @else {
+
+            <option value="{{ unit }}">{{ unit }}</option>
+            } }
+          </select>
+        </div>
+        <div class="flex-grow-1">
+          <label for="value" class="form-label">Valore</label>
+          <input
+            formControlName="value"
+            type="number"
+            class="form-control"
+            id="value"
+            min="0"
+          />
+        </div>
+      </div>
+
+      <button
+        [disabled]="!form.valid"
+        type="submit"
+        class="btn btn-primary w-100"
+      >
+        Aggiungi
+      </button>
+    </form>
+  </div>
 </div>
