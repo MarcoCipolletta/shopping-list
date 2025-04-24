@@ -1,47 +1,6 @@
-<!-- <h1 class="pt-5 text-primary text-center">LISTA DELLA SPESA</h1>
-
-@if(itemsToCheck.length > 0 || itemsChecked.length > 0){ @if(itemsToCheck.length
-> 0){
-<h2>Da prendere</h2>
-<ul class="p-0">
-  @for(item of itemsToCheck;track item.id){
-  <li
-    (click)="change(item)"
-    class="px-3 py-2 mt-2 bg-background rounded d-flex justify-content-between align-content-center border"
-    role="button"
-  >
-    <span>{{ item.name }}</span>
-    <span>
-      {{ item.quantity.value }}
-      {{ item.quantity.unit === "unità" ? "" : item.quantity.unit }}
-    </span>
-  </li>
-  }
-</ul>
-} @if(itemsChecked.length > 0){
-<h2>Presi</h2>
-@for(item of itemsChecked;track item.id){
-<div
-  (click)="delete(item.id)"
-  class="d-flex justify-content-between text-decoration-line-through"
->
-  <p>{{ item.name }}</p>
-  <p>
-    {{ item.quantity.value }}
-    {{ item.quantity.unit === "unità" ? "" : item.quantity.unit }}
-  </p>
-</div>
-
-}}} @else {
-<div
-  class="h-full d-flex flex-column justify-content-center align-items-center"
->
-  <h2>Nessun prodotto inserito</h2>
-</div>
-} -->
-
 <h1 class="pt-5 text-primary text-center">LISTA DELLA SPESA</h1>
 
+@if(!isLoading){
 <div class="container mt-4">
   @if(itemsToCheck.length > 0 || itemsChecked.length > 0){
   @if(itemsToCheck.length > 0){
@@ -92,3 +51,12 @@
   </div>
   }
 </div>
+} @else {
+<div
+  class="d-flex flex-column justify-content-center align-items-center vh-50 text-center mt-5"
+>
+  <div class="d-flex gap-4 text-success">
+    <span class="loader">Caricamento</span>
+  </div>
+</div>
+}

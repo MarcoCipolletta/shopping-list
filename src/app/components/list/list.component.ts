@@ -8,6 +8,7 @@ import { iItem } from '../../interfaces/interfaces';
   styleUrl: './list.component.scss',
 })
 export class ListComponent {
+  isLoading = true;
   constructor(private firestoreSvc: FirestoreService) {}
   itemsToCheck: iItem[] = [];
   itemsChecked: iItem[] = [];
@@ -15,6 +16,7 @@ export class ListComponent {
     this.firestoreSvc.listenToItems().subscribe((docs) => {
       this.itemsToCheck = docs.filter((item) => !item.checked);
       this.itemsChecked = docs.filter((item) => item.checked);
+      this.isLoading = false;
     });
   }
 

@@ -18,6 +18,7 @@ import {
   iconoirNotes,
   iconoirShoppingBagPlus,
   iconoirTrash,
+  iconoirPlus,
 } from '@ng-icons/iconoir';
 
 @NgModule({
@@ -36,6 +37,7 @@ import {
       iconoirNotes,
       iconoirShoppingBagPlus,
       iconoirTrash,
+      iconoirPlus,
     }),
   ],
   providers: [
