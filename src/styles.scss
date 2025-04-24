@@ -3,10 +3,12 @@
 
 $primary: #0e5e13;
 $secondary: rgb(168, 208, 171);
+$background: rgb(216, 231, 217);
 
 $new-theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
+  "background": $background,
 );
 
 $theme-colors: map-merge($theme-colors, $new-theme-colors);

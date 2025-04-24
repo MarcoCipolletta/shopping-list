@@ -1,17 +1,24 @@
-<h1 class="pt-5 text-primary text-center">LISTA DELLA SPESA</h1>
+<!-- <h1 class="pt-5 text-primary text-center">LISTA DELLA SPESA</h1>
 
 @if(itemsToCheck.length > 0 || itemsChecked.length > 0){ @if(itemsToCheck.length
 > 0){
 <h2>Da prendere</h2>
-@for(item of itemsToCheck;track item.id){
-<div (click)="change(item)" class="d-flex justify-content-between">
-  <p>{{ item.name }}</p>
-  <p>
-    {{ item.quantity.value }}
-    {{ item.quantity.unit === "unità" ? "" : item.quantity.unit }}
-  </p>
-</div>
-}} @if(itemsChecked.length > 0){
+<ul class="p-0">
+  @for(item of itemsToCheck;track item.id){
+  <li
+    (click)="change(item)"
+    class="px-3 py-2 mt-2 bg-background rounded d-flex justify-content-between align-content-center border"
+    role="button"
+  >
+    <span>{{ item.name }}</span>
+    <span>
+      {{ item.quantity.value }}
+      {{ item.quantity.unit === "unità" ? "" : item.quantity.unit }}
+    </span>
+  </li>
+  }
+</ul>
+} @if(itemsChecked.length > 0){
 <h2>Presi</h2>
 @for(item of itemsChecked;track item.id){
 <div
@@ -31,4 +38,57 @@
 >
   <h2>Nessun prodotto inserito</h2>
 </div>
-}
+} -->
+
+<h1 class="pt-5 text-primary text-center">LISTA DELLA SPESA</h1>
+
+<div class="container mt-4">
+  @if(itemsToCheck.length > 0 || itemsChecked.length > 0){
+  @if(itemsToCheck.length > 0){
+  <section class="mb-5">
+    <h2 class="mb-3 text-success">🛒 Da prendere</h2>
+    <ul class="list-group shadow-sm">
+      @for(item of itemsToCheck;track item.id){
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+        role="button"
+        (click)="change(item)"
+      >
+        <span>{{ item.name }}</span>
+        <span class="badge bg-primary rounded-pill">
+          {{ item.quantity.value }}
+          {{ item.quantity.unit === "unità" ? "" : item.quantity.unit }}
+        </span>
+      </li>
+      }
+    </ul>
+  </section>
+  } @if(itemsChecked.length > 0){
+  <section>
+    <h2 class="mb-3 text-muted">✅ Presi</h2>
+    <ul class="list-group shadow-sm">
+      @for(item of itemsChecked;track item.id){
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center text-decoration-line-through text-muted"
+        (click)="change(item)"
+      >
+        <span role="button">{{ item.name }}</span>
+        <span
+          (click)="delete(item.id)"
+          role="button"
+          class="d-flex justify-content-center align-content-center text-danger fs-4"
+        >
+          <ng-icon name="iconoirTrash"></ng-icon
+        ></span>
+      </li>
+      }
+    </ul>
+  </section>
+  } } @else {
+  <div
+    class="d-flex flex-column justify-content-center align-items-center vh-50 text-center mt-5"
+  >
+    <h2 class="text-secondary">Nessun prodotto inserito 💤</h2>
+  </div>
+  }
+</div>

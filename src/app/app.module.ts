@@ -14,7 +14,11 @@ import { AddItemComponent } from './components/add-item/add-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ListComponent } from './components/list/list.component';
 import { NgIconsModule } from '@ng-icons/core';
-import { iconoirNotes, iconoirShoppingBagPlus } from '@ng-icons/iconoir';
+import {
+  iconoirNotes,
+  iconoirShoppingBagPlus,
+  iconoirTrash,
+} from '@ng-icons/iconoir';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { iconoirNotes, iconoirShoppingBagPlus } from '@ng-icons/iconoir';
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    NgIconsModule.withIcons({ iconoirNotes, iconoirShoppingBagPlus }),
+    NgIconsModule.withIcons({
+      iconoirNotes,
+      iconoirShoppingBagPlus,
+      iconoirTrash,
+    }),
   ],
   providers: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
