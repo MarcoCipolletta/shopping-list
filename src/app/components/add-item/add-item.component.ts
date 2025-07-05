@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirestoreService } from '../../services/firestore.service';
-import { iItem, unit } from './../../interfaces/interfaces';
+import { iItem } from './../../interfaces/interfaces';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
@@ -11,14 +11,11 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class AddItemComponent {
   constructor(private firestoreSvc: FirestoreService) {}
-  units = Object.values(unit);
 
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
-    quantity: new FormGroup({
-      unit: new FormControl(this.units[0], [Validators.required]),
-      value: new FormControl(0, [Validators.required, Validators.min(1)]),
-    }),
+    quantity: new FormControl(0),
+
     checked: new FormControl(false),
   });
 
