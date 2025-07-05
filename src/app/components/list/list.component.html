@@ -14,9 +14,8 @@
         (click)="change(item)"
       >
         <span>{{ item.name }}</span>
-        <span class="badge bg-primary rounded-pill">
-          {{ item.quantity.value }}
-          {{ item.quantity.unit === "unità" ? "" : item.quantity.unit }}
+        <span class="badge bg-primary rounded-pill" *ngIf="item.quantity > 0">
+          {{ item.quantity }}
         </span>
       </li>
       }

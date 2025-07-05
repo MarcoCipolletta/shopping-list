@@ -15,22 +15,11 @@
           />
         </div>
 
-        <div class="row mb-3" formGroupName="quantity">
-          <div class="col-5">
-            <label for="unit" class="form-label">Unità</label>
-            <select formControlName="unit" class="form-select" id="unit">
-              @for(unit of units;track unit;let idx = $index){
-              <option [selected]="idx === 0" value="{{ unit }}">
-                {{ unit }}
-              </option>
-              }
-            </select>
-          </div>
-
+        <div class="row mb-3">
           <div class="col-7">
             <label for="value" class="form-label">Quantità</label>
             <input
-              formControlName="value"
+              formControlName="quantity"
               type="number"
               class="form-control"
               id="value"
