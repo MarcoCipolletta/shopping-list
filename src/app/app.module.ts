@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ListComponent } from './components/list/list.component';
+import { DeleteCheckedItemsModalComponent } from './components/delete-checked-items-modal/delete-checked-items-modal.component';
 import { NgIconsModule } from '@ng-icons/core';
 import {
   iconoirNotes,
@@ -28,6 +29,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AddItemComponent,
     FooterComponent,
     ListComponent,
+    DeleteCheckedItemsModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
   providers: [

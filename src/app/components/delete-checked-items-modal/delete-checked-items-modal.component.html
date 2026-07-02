@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h4 class="modal-title">Elimina prodotti presi</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Chiudi"
+    (click)="activeModal.dismiss('cancel')"
+  ></button>
+</div>
+<div class="modal-body">
+  <p class="mb-0">
+    Vuoi eliminare
+    {{ itemsCount === 1 ? "il prodotto preso" : "tutti i prodotti presi" }}
+    dalla lista?
+  </p>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-secondary"
+    (click)="activeModal.dismiss('cancel')"
+  >
+    Annulla
+  </button>
+  <button
+    type="button"
+    class="btn btn-danger d-flex gap-2 align-items-center justify-content-center"
+    (click)="activeModal.close('confirm')"
+  >
+    <ng-icon name="iconoirTrash"></ng-icon>
+    <span>Elimina</span>
+  </button>
+</div>

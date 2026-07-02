@@ -7,6 +7,7 @@ import {
   doc,
   updateDoc,
   collectionData,
+  writeBatch,
 } from '@angular/fire/firestore';
 
 import { iItem } from '../interfaces/interfaces';
@@ -39,6 +40,21 @@ export class FirestoreService {
       console.log('Document successfully deleted!');
     } catch (e) {
       console.error('Error removing document: ', e);
+    }
+  }
+
+  async deleteItems(ids: string[]): Promise<void> {
+    try {
+      const batch = writeBatch(this.firestore);
+
+      ids.forEach((id) => {
+        batch.delete(doc(this.firestore, `items/${id}`));
+      });
+
+      await batch.commit();
+      console.log('Documents successfully deleted!');
+    } catch (e) {
+      console.error('Error removing documents: ', e);
     }
   }
 
